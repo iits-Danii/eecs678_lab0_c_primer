@@ -149,7 +149,7 @@ static void printList(struct Node* head)
 
     // Step 4: Move to the next node.
     // Hint: Update the current node pointer to the next node in the list.
-    // Your Code Here
+        current = current->next;
 }
 
 /*
