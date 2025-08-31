@@ -141,15 +141,17 @@ static void printList(struct Node* head)
     // Step 2: Traverse the list starting from the head.
     // Hint: Use a while loop; continue until the current node is NULL.
     struct Node* current = head;
-    while (current != NULL) {}
+    while (current != NULL) {
 
     // Step 3: Print the data of each node.
     // Hint: Access the data of the node using the arrow operator (->).
-        printf("%d ->", current->data);
+        printf("%d -> ", current->data);
 
     // Step 4: Move to the next node.
     // Hint: Update the current node pointer to the next node in the list.
         current = current->next;
+    }
+    return;
 }
 
 /*
@@ -168,15 +170,23 @@ static void deleteList(struct Node** head)
 {
     // Step 1: Declare a pointer to hold the current node and a temporary node.
     // Hint: Use two pointers, one for the current node and another to hold the next node temporarily.
-    // Your Code Here
+    if (head == NULL || *head == NULL) {
+        return;
+    }
+    struct Node* current = *head;
+    struct Node* nextNode = NULL;
 
     // Step 2: Traverse the list and free each node.
     // Hint: Use a loop. For each node, before freeing it, save the reference to the next node.
-    // Your Code Here
+    while (current != NULL) {
+        nextNode = current->next;
+        free(current);
+        current = nextNode;
+    }
 
     // Step 3: After all nodes are freed, set the head to NULL to indicate the list is empty.
     // Hint: It is crucial to reset the head pointer to NULL after freeing the nodes to avoid dangling pointers.
-    // Your Code Here
+    *head = NULL;
 }
 
 
